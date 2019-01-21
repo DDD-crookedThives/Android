@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#00BFA5</color>
+    <color name="colorPrimaryDark">#F5F5F5</color>
+    <color name="colorPrimaryText">#FFFFFF</color>
+    <color name="colorSecondaryText">#000000</color>
+
+    <color name="light_greenish_blue">#5ef2d6</color>
+    <color name="butterscotch">#ffab40</color>
+    <color name="yellow_tan">#ffdd71</color>
+    <color name="teal">#008e76</color>
+    <color name="dirty_orange">#c77d01</color>
+    <color name="ice_blue">#eceff1</color>
+    <color name="deep_red">#b00202</color>
+    <color name="light_grey_blue">#babdbe</color>
+    <color name="turquoise">#00bfa5</color>
+
+    <color name="layout_gradient_end">#fff1d0</color>
+    <color name="layout_gradient_start">#00bfa5</color>
+</resources>

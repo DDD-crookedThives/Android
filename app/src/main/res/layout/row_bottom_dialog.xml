@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.mikhaellopez.circularimageview.CircularImageView
+        android:id="@+id/dogImage"
+        android:layout_width="52dp"
+        android:layout_height="52dp"
+        android:src="@drawable/default_dog_image"
+        app:civ_border="false"/>
+
+    <TextView
+        android:id="@+id/dogName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/default_dog_name"
+        android:textSize="12sp"
+        android:textColor="#083240"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="4dp"
+        android:layout_below="@+id/dogImage"/>
+
+    <View
+        android:id="@+id/picker"
+        android:layout_width="12dp"
+        android:layout_height="12dp"
+        android:background="@drawable/element_background_button_picker"
+        android:layout_alignEnd="@+id/dogImage"/>
+
+</RelativeLayout>

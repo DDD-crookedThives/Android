@@ -1,0 +1,30 @@
+<resources>
+
+    <string name="google_map_key">AIzaSyAiCnZiMrL2s-rsULI7g1V74m8CyzAqUzw</string>
+    <string name="google_oauth_key">654900950413-adi9071mn37oaa7q8lg6b8u893ufhogf.apps.googleusercontent.com</string>
+
+    <string name="app_name">LETS</string>
+    <string name="login">LOGIN</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="title_activity_main">MainActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="nav_header_title">userName</string>
+    <string name="nav_header_subtitle">userEmail</string>
+    <string name="nav_header_desc">userPhoto</string>
+
+    <string name="action_settings">Settings</string>
+
+    <string name="nav_logout">로그아웃</string>
+    <string name="title_walk">산책하기</string>
+    <string name="title_history">기록</string>
+    <string name="title_reward">리워드</string>
+    <string name="title_walk_start">GO!</string>
+    <string name="bottom_dogs_title">반려견</string>
+    <string name="default_dog_name">베른</string>
+    <string name="default_nav_title">미정</string>
+</resources>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.WalkFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.google.android.gms.maps.MapView
+            android:id="@+id/mapView"
+            android:name="com.google.android.gms.maps.MapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <RelativeLayout
+            android:layout_width="62dp"
+            android:layout_height="62dp"
+            android:layout_alignStart="@+id/mapView"
+            android:layout_alignTop="@+id/mapView"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="18dp">
+
+            <RelativeLayout
+                android:id="@+id/dogLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.mikhaellopez.circularimageview.CircularImageView
+                    android:id="@+id/selectedImage"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:layout_centerInParent="true"
+                    android:src="@mipmap/ic_launcher"
+                    app:civ_border_color="#EEEEEE"
+                    app:civ_border_width="1.5dp"/>
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/dogCount"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:background="@drawable/element_background_count_icon"
+                android:gravity="center"
+                android:layout_alignEnd="@id/dogLayout"
+                android:layout_alignBottom="@id/dogLayout"
+                android:textColor="@color/colorPrimaryText"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/startBtn"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/element_background_button_circle"
+            android:layout_alignStart="@+id/mapView"
+            android:layout_alignEnd="@+id/mapView"
+            android:layout_alignBottom="@+id/mapView"
+            android:layout_marginStart="118dp"
+            android:layout_marginEnd="118dp"
+            android:layout_marginBottom="44dp"
+            android:text="@string/title_walk_start"
+            android:textColor="@color/colorPrimaryText"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+
+    </RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>
