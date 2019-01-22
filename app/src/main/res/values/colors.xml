@@ -5,6 +5,8 @@
     <color name="colorPrimaryText">#FFFFFF</color>
     <color name="colorSecondaryText">#000000</color>
 
+    <color name="colorWhite">#FFFFFF</color>
+
     <color name="light_greenish_blue">#5ef2d6</color>
     <color name="butterscotch">#ffab40</color>
     <color name="yellow_tan">#ffdd71</color>

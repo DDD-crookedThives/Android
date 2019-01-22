@@ -27,4 +27,5 @@
     <string name="bottom_dogs_title">반려견</string>
     <string name="default_dog_name">베른</string>
     <string name="default_nav_title">미정</string>
+    <string name="title_add_dog">반려견 등록</string>
 </resources>

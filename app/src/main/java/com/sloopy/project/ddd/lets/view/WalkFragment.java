@@ -72,7 +72,7 @@ public class WalkFragment extends Fragment implements OnMapReadyCallback {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        mMapView.onDestroy();
+        //mMapView.onDestroy();
     }
 
     @Override
