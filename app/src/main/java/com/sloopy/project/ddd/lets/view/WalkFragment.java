@@ -172,6 +172,34 @@ public class WalkFragment extends Fragment implements OnMapReadyCallback {
     }
 
     @Override
+    public void onStart() {
+        super.onStart();
+        Log.d(TAG, "onStart");
+
+        if (checkPermission()) {
+
+            Log.d(TAG, "onStart : call mFusedLocationClient.requestLocationUpdates");
+            mFusedLocationClient.requestLocationUpdates(locationRequest, locationCallback, null);
+
+            if (mGoogleMap!=null) {
+                mGoogleMap.setMyLocationEnabled(true);
+            }
+        }
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        super.onStop();
+
+        if (mFusedLocationClient != null) {
+
+            Log.d(TAG, "onStop : call stopLocationUpdates");
+            mFusedLocationClient.removeLocationUpdates(locationCallback);
+        }
+    }
+
+    @Override
     public void onResume() {
         mMapView.onResume();
         super.onResume();
