@@ -19,7 +19,7 @@
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyAiCnZiMrL2s-rsULI7g1V74m8CyzAqUzw" />
+            android:value="AIzaSyDGR0rEWCUpJM3JrljFq5xaiKoHex0kpzs" />
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
@@ -28,7 +28,6 @@
             android:theme="@style/FullTheme" />
         <activity
             android:name=".view.MainActivity"
-            android:label="@string/title_activity_main"
             android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
