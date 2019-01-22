@@ -21,7 +21,7 @@ public interface ApiService {
             @Query("photo") String userPhoto
     );
 
-    @POST("dog/{token}")
+    @POST("/dogs/{token}")
     Single<DogInfo> addDog(
             @Path("token") String userToken,
             @Query("name") String name,

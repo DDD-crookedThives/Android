@@ -72,12 +72,12 @@ public class AddActivity extends AppCompatActivity implements AddContract.View {
                 String genderValue = ((RadioButton)findViewById(dogGenderGroup.getCheckedRadioButtonId())).getText().toString();
                 SharedPreferences pref = getSharedPreferences("userProfile", MODE_PRIVATE);
                 String userToken = pref.getString("id", "");
-                String photo = "";
+                String photo = "default";
 
                 mPresenter.addDogTask(
-                        userToken,
+                        String.valueOf(userToken),
                         String.valueOf(dogName.getText()),
-                        photo,
+                        String.valueOf(photo),
                         String.valueOf(genderValue),
                         String.valueOf(dogBirth.getText()));
 
@@ -115,7 +115,7 @@ public class AddActivity extends AppCompatActivity implements AddContract.View {
     private DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() {
         @Override
         public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-            String msg = String.format("%d년 %d월 %d일", year, monthOfYear+1, dayOfMonth);
+            String msg = String.format("%d년%d월%d일", year, monthOfYear+1, dayOfMonth);
             dogBirth.setText(msg);
 
         }

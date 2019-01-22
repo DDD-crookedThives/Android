@@ -32,7 +32,7 @@ public class AddPresenter implements AddContract.Presenter {
 
     @Override
     public void addDogTask(String userToken, String dogName, String photo, String dogGender, String dogBirth) {
-        Log.d("dogTask", userToken + dogName + dogGender + dogBirth);
+        Log.d("dogTask", userToken + dogName + photo + dogGender + dogBirth);
         //mView.showProgress();
 
         mCompositeDisposable.add(
