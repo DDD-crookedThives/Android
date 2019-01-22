@@ -72,8 +72,14 @@ public class AddActivity extends AppCompatActivity implements AddContract.View {
                 String genderValue = ((RadioButton)findViewById(dogGenderGroup.getCheckedRadioButtonId())).getText().toString();
                 SharedPreferences pref = getSharedPreferences("userProfile", MODE_PRIVATE);
                 String userToken = pref.getString("id", "");
+                String photo = "";
 
-                mPresenter.addDogTask(userToken, String.valueOf(dogName.getText()), String.valueOf(genderValue), String.valueOf(dogBirth.getText()));
+                mPresenter.addDogTask(
+                        userToken,
+                        String.valueOf(dogName.getText()),
+                        photo,
+                        String.valueOf(genderValue),
+                        String.valueOf(dogBirth.getText()));
 
             }
         });

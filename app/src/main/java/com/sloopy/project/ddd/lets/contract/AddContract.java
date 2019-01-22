@@ -17,7 +17,7 @@ public interface AddContract {
 
         void detachView();
 
-        void addDogTask(String userToken, String dogName, String dogGender, String dogBirth);
+        void addDogTask(String userToken, String photo, String dogName, String dogGender, String dogBirth);
     }
 
 }
