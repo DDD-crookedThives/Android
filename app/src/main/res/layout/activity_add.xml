@@ -55,7 +55,7 @@
             android:id="@+id/currentDogImage"
             android:layout_width="94dp"
             android:layout_height="94dp"
-            android:src="@drawable/default_dog_image"
+            android:src="@drawable/default_dog_photo"
             android:layout_centerInParent="true"/>
 
         <ImageButton

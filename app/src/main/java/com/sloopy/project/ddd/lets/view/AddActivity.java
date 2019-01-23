@@ -1,5 +1,6 @@
 package com.sloopy.project.ddd.lets.view;
 
+import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -75,6 +76,7 @@ public class AddActivity extends AppCompatActivity implements AddContract.View {
                 String photo = "default";
 
                 mPresenter.addDogTask(
+                        AddActivity.this,
                         String.valueOf(userToken),
                         String.valueOf(dogName.getText()),
                         String.valueOf(photo),
@@ -115,7 +117,8 @@ public class AddActivity extends AppCompatActivity implements AddContract.View {
     private DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() {
         @Override
         public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-            String msg = String.format("%d년%d월%d일", year, monthOfYear+1, dayOfMonth);
+            @SuppressLint("DefaultLocale")
+            String msg = String.format("%d.%d.%d", year, monthOfYear+1, dayOfMonth);
             dogBirth.setText(msg);
 
         }

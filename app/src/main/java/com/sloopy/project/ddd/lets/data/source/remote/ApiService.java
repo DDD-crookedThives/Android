@@ -4,6 +4,8 @@ import com.sloopy.project.ddd.lets.data.DogInfo;
 import com.sloopy.project.ddd.lets.data.UserInfo;
 
 import io.reactivex.Single;
+import retrofit2.http.Field;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
@@ -21,9 +23,9 @@ public interface ApiService {
             @Query("photo") String userPhoto
     );
 
-    @POST("/dogs/{token}")
+    @POST("dogs/token")
     Single<DogInfo> addDog(
-            @Path("token") String userToken,
+            @Query("token") String userToken,
             @Query("name") String name,
             @Query("photo") String photo,
             @Query("gender") String gender,

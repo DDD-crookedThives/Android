@@ -1,5 +1,7 @@
 package com.sloopy.project.ddd.lets.contract;
 
+import com.sloopy.project.ddd.lets.view.AddActivity;
+
 public interface AddContract {
 
     interface View {
@@ -17,7 +19,7 @@ public interface AddContract {
 
         void detachView();
 
-        void addDogTask(String userToken, String photo, String dogName, String dogGender, String dogBirth);
+        void addDogTask(AddActivity activity, String userToken, String photo, String dogName, String dogGender, String dogBirth);
     }
 
 }

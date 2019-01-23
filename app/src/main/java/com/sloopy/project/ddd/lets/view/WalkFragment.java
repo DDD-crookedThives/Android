@@ -33,9 +33,7 @@ import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
-import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.OnMapReadyCallback;
-import com.google.android.gms.maps.UiSettings;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
@@ -43,7 +41,6 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.mikhaellopez.circularimageview.CircularImageView;
 import com.sloopy.project.ddd.lets.R;
 import com.sloopy.project.ddd.lets.util.BottomDogsDialog;
-import com.sloopy.project.ddd.lets.util.BottomStartDialog;
 
 import java.io.IOException;
 import java.util.List;
@@ -99,8 +96,11 @@ public class WalkFragment extends Fragment implements OnMapReadyCallback {
         startBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                /*
                 BottomStartDialog bottomStartDialog = BottomStartDialog.newInstance();
                 bottomStartDialog.show(Objects.requireNonNull(getActivity()).getSupportFragmentManager(), "bottom_start_fragment");
+                */
+                startActivity(new Intent(getActivity(), GoalActivity.class));
             }
         });
 

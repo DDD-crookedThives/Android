@@ -8,7 +8,7 @@
         android:id="@+id/dogImage"
         android:layout_width="52dp"
         android:layout_height="52dp"
-        android:src="@drawable/default_dog_image"
+        android:src="@drawable/default_dog_photo"
         app:civ_border="false"/>
 
     <TextView
