@@ -1,8 +1,12 @@
 package com.sloopy.project.ddd.lets.data.source.remote;
 
 import com.sloopy.project.ddd.lets.data.DogInfo;
+import com.sloopy.project.ddd.lets.data.DogResult;
 import com.sloopy.project.ddd.lets.data.UserInfo;
 
+import java.util.List;
+
+import io.reactivex.Observable;
 import io.reactivex.Single;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -30,6 +34,11 @@ public interface ApiService {
             @Query("photo") String photo,
             @Query("gender") String gender,
             @Query("birth") String birth
+    );
+
+    @GET("dogs/token")
+    Single<DogResult> getDog(
+            @Query("token") String userToken
     );
 
 }
