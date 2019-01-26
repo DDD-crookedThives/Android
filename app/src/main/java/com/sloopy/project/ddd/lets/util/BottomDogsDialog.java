@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.BottomSheetDialogFragment;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -16,15 +17,12 @@ import android.widget.ImageButton;
 
 import com.sloopy.project.ddd.lets.R;
 import com.sloopy.project.ddd.lets.adapter.WalkDogListAdapter;
-import com.sloopy.project.ddd.lets.data.DogData;
 import com.sloopy.project.ddd.lets.data.DogResult;
 import com.sloopy.project.ddd.lets.data.source.remote.ApiClient;
 import com.sloopy.project.ddd.lets.data.source.remote.ApiService;
 import com.sloopy.project.ddd.lets.view.AddActivity;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -33,6 +31,8 @@ import io.reactivex.observers.DisposableSingleObserver;
 import io.reactivex.schedulers.Schedulers;
 
 public class BottomDogsDialog extends BottomSheetDialogFragment {
+
+    private static final String TAG = "BottomDogsDialog";
 
     public static BottomDogsDialog newInstance() {
         return new BottomDogsDialog();
@@ -43,16 +43,19 @@ public class BottomDogsDialog extends BottomSheetDialogFragment {
 
     private ApiService mApiService;
     private CompositeDisposable mCompositeDisposable;
-    private List<DogData> dogdata;
+    private ArrayList<DogResult> dogResults;
+    private LinearLayoutManager mLayoutManager;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.bottom_dogs_dialog, container,false);
 
+        Log.d(TAG, "onCreateView");
+
         mApiService = ApiClient.getClient().create(ApiService.class);
         mCompositeDisposable = new CompositeDisposable();
-        dogdata = new ArrayList<>();
+        dogResults = new ArrayList<>();
 
         addBtn = view.findViewById(R.id.addBtn);
         addBtn.setOnClickListener(new View.OnClickListener() {
@@ -62,16 +65,10 @@ public class BottomDogsDialog extends BottomSheetDialogFragment {
             }
         });
 
-        mRecyclerView = view.findViewById(R.id.bottomRecycler);
-        WalkDogListAdapter mAdapter = new WalkDogListAdapter(new WalkDogListAdapter.DogClickListener() {
-            @Override
-            public void onDogClicked() {
-                // 클릭 시 선택 및 해제
-
-            }
-        });
-        mRecyclerView.setAdapter(mAdapter);
         getDogServer();
+
+        mRecyclerView = view.findViewById(R.id.bottomRecycler);
+        mLayoutManager = new LinearLayoutManager(view.getContext(), LinearLayoutManager.HORIZONTAL, false);
 
         return view;
     }
@@ -88,14 +85,13 @@ public class BottomDogsDialog extends BottomSheetDialogFragment {
                         .subscribeWith(new DisposableSingleObserver<DogResult>() {
                             @Override
                             public void onSuccess(DogResult results) {
-                                Log.d("강아지목록", String.valueOf(results));
 
-                                for (int i = 0; i < results.getData().size(); i++) {
-                                    Log.d("강아지이름", results.getData().get(i).getName());
-                                    Log.d("강아지성별", results.getData().get(i).getGender());
-                                    Log.d("강아지생일", results.getData().get(i).getBirth());
+                                for (int i=0; i<results.getData().size(); i++) {
 
-                                    getDogData();
+                                    ArrayList<DogResult> dogResults = new ArrayList<>();
+                                    dogResults.add(results);
+
+                                    getDogsResult(dogResults);
                                 }
                             }
 
@@ -107,10 +103,18 @@ public class BottomDogsDialog extends BottomSheetDialogFragment {
         );
     }
 
-    private void getDogData() {
+    private void getDogsResult(ArrayList<DogResult> dogResult) {
+        dogResults.addAll(dogResult);
+        WalkDogListAdapter mAdapter = new WalkDogListAdapter(dogResults, new WalkDogListAdapter.DogClickListener() {
+            @Override
+            public void onDogClicked(int position) {
 
-        //dogdata.addAll(dogs);
-        //Log.d("dogs", String.valueOf(dogs));
+                // 강아지 클릭 처리
+            }
+        });
+        mRecyclerView.setLayoutManager(mLayoutManager);
+        mRecyclerView.setAdapter(mAdapter);
+
     }
 
     @Override

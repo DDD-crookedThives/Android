@@ -1,25 +1,29 @@
 package com.sloopy.project.ddd.lets.adapter;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.sloopy.project.ddd.lets.R;
-import com.sloopy.project.ddd.lets.data.DogInfo;
+import com.sloopy.project.ddd.lets.data.DogResult;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class WalkDogListAdapter extends RecyclerView.Adapter<WalkDogListAdapter.ViewHolder> {
 
-    private List<DogInfo> dogsList;
+    private static final String TAG = "WalkDogListAdapter";
+
+    private ArrayList<DogResult> dogsList;
     private DogClickListener mDogClickListener;
 
-    public WalkDogListAdapter(DogClickListener dogClickListener) {
-        this.dogsList = new ArrayList<>();
+    public WalkDogListAdapter(ArrayList<DogResult> dogsList, DogClickListener dogClickListener) {
+        this.dogsList = dogsList;
         mDogClickListener = dogClickListener;
     }
 
@@ -44,8 +48,20 @@ public class WalkDogListAdapter extends RecyclerView.Adapter<WalkDogListAdapter.
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") final int position) {
+        Log.d(TAG, "onBindViewHolder");
+        DogResult mDogResult = dogsList.get(position);
 
+        Log.d("어뎁터 값", mDogResult.getData().get(position).getName());
+        holder.dogName.setText(mDogResult.getData().get(position).getName());
+
+        holder.picker.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                mDogClickListener.onDogClicked(position);
+            }
+        });
 
     }
 
@@ -55,6 +71,6 @@ public class WalkDogListAdapter extends RecyclerView.Adapter<WalkDogListAdapter.
     }
 
     public interface DogClickListener {
-        void onDogClicked();
+        void onDogClicked(int position);
     }
 }

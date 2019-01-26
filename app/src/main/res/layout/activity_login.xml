@@ -37,7 +37,8 @@
         android:layout_marginBottom="44dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        style="?android:attr/borderlessButtonStyle" />
 
     <ProgressBar
         android:id="@+id/progressBar"
